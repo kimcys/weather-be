@@ -6,7 +6,19 @@ import { QueryLocationDto } from './dto/query-location.dto';
 
 @Controller('locations')
 export class LocationsController {
-  constructor(private readonly svc: LocationsService) {}
+  constructor(private readonly svc: LocationsService) { }
+
+  @Get('healthz')
+  healthCheck() {
+    return {
+      status: 'ok',
+      timestamp: new Date().toISOString(),
+      service: 'locations-service',
+      uptime: process.uptime(),
+      memory: process.memoryUsage(),
+      environment: process.env.NODE_ENV || 'development'
+    };
+  }
 
   @Post()
   create(@Body() dto: CreateLocationDto) {
