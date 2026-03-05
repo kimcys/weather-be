@@ -8,6 +8,8 @@ async function bootstrap() {
     origin: [
       'http://localhost:4200',
       'http://localhost:3000',
+      'http://hujanke.netlify.app',
+      'https://hujanke.netlify.app',
     ],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
